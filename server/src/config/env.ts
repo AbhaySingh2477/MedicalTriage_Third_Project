@@ -3,7 +3,7 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-dotenvConfig({ path: resolve(__dirname, '../../../../.env') });
+dotenvConfig({ path: resolve(__dirname, '../../../.env') });
 
 import { z } from 'zod';
 
