@@ -1,0 +1,24 @@
+{
+  "name": "medtriage",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Real-Time On-Demand Medical Triage & Telehealth Platform",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "docker compose up -d postgres redis meilisearch && npm run dev:services",
+    "dev:services": "npm run dev --workspaces --if-present",
+    "dev:web": "npm run dev --workspace=apps/web",
+    "dev:gateway": "npm run dev --workspace=apps/gateway",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "db:migrate": "npm run db:migrate --workspace=apps/gateway",
+    "db:seed": "npm run db:seed --workspace=apps/gateway",
+    "clean": "rm -rf node_modules apps/*/node_modules packages/*/node_modules"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
